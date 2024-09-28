@@ -12,9 +12,11 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 
+app.use(cors({
+  origin: 'https://nowadays-server.glitch.me'
+}));
 app.use(express.json());
 app.use(express.static("public"));
-app.use(cors());
 
 app.post('/check-discord-user', async (req, res) => {
   const { username } = req.body;
