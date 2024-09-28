@@ -1,12 +1,12 @@
-
-const { Client, GatewayIntentBits } = require('discord.js');
+require('dotenv').config()
+const Discord = require('discord.js');
+const { Client, GatewayIntentBits } = Discord;
 const client = new Client({
   intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent
-  ],
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.MessageContent,
+  ]
 });
 const cors = require("cors");
 const express = require("express");
