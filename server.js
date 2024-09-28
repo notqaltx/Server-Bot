@@ -12,6 +12,11 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", `${process.env.SERVER_URL}`);
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use(cors({ origin: '*' }));
 app.options('*', cors());
 app.use(express.json());
