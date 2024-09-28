@@ -22,7 +22,7 @@ app.post('/check-discord-user', async (req, res) => {
     const guild = await client.guilds.fetch(process.env.GUILD_ID);
     const member = guild.members.cache.find(member => member.user.tag === username);
     if (!member) {
-      return res.status(404).json({
+      return res.status(400).json({
         errorcode: '4000',
         message: 'User not found in the server',
       });
